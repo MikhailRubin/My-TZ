@@ -1,5 +1,5 @@
 public class MoneyException extends RuntimeException{
-    public MoneyException(String message) {
-        super(message);
+    public MoneyException(String str) {
+        super(str);
     }
 }

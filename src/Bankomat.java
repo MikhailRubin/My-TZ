@@ -11,7 +11,7 @@ public class Bankomat {
         bankomat.inputMoney();
     }
 
-    int kartSum = 2600;
+    int kartSum = 30000;
     ArrayList<Integer> money10 = new ArrayList<Integer>(Arrays.asList(10, 10, 10, 10, 10, 10, 10, 10, 10, 10));
     ArrayList<Integer> money50 = new ArrayList<Integer>(Arrays.asList(50, 50, 50, 50, 50, 50, 50, 50, 50, 50));
     ArrayList<Integer> money100 = new ArrayList<Integer>(Arrays.asList(100, 100, 100, 100, 100, 100, 100, 100, 100, 100));

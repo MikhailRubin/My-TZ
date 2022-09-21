@@ -11,12 +11,13 @@ public class Bankomat {
         bankomat.inputMoney();
     }
 
-    int kartSum = 2600;
+    int kartSum = 2500;
     ArrayList<Integer> money10 = new ArrayList<Integer>(Arrays.asList(10, 10, 10, 10, 10, 10, 10, 10, 10, 10));
     ArrayList<Integer> money50 = new ArrayList<Integer>(Arrays.asList(50, 50, 50, 50, 50, 50, 50, 50, 50, 50));
     ArrayList<Integer> money100 = new ArrayList<Integer>(Arrays.asList(100, 100, 100, 100, 100, 100, 100, 100, 100, 100));
 
-    int sumBank = (money10.size() *10) + (money50.size() * 50) + (money100.size() * 100);
+    int sumBank = (money10.size() * 10) + (money50.size() * 50) + (money100.size() * 100);
+
     void menu(Bankomat bankomat) {
         System.out.println("Чтобы снять наличные, нажмите 1");
         System.out.println("Чтобы пополнить счет, нажмите 2");
@@ -100,32 +101,32 @@ public class Bankomat {
                 money10.remove(j);
             }
         }
-            if (sumBank < output) {
-                throw new MoneyException("Отсутствуют купюры в банкомате");
-            }
-            if (output <= kartSum) {
-                kartSum = kartSum - output;
-            } else if (output > kartSum) {
-                throw new MoneyException("У вас недостаточно средств");
-            }
-
+        if (sumBank < output) {
+            throw new MoneyException("Отсутствуют купюры в банкомате");
+        }
+        if (output <= kartSum) {
+            kartSum = kartSum - output;
+        } else if (output > kartSum) {
+            throw new MoneyException("У вас недостаточно средств");
         }
 
-        void inputMoney () {
-            System.out.println("Внесите сумму");
-            Scanner scanner = new Scanner(System.in);
-            Integer input = scanner.nextInt();
-            if (input == 10) {
-                money10.add(input);
-                kartSum = input + kartSum;
-            } else if (input == 50) {
-                money50.add(input);
-                kartSum = input + kartSum;
-            } else if (input == 100) {
-                money100.add(input);
-                kartSum = input + kartSum;
-            } else if (input != 10 && input != 50 && input != 100) {
-                System.out.println("Банкомат не принимает такие купюры!");
-            }
+    }
+
+    void inputMoney() {
+        System.out.println("Внесите сумму");
+        Scanner scanner = new Scanner(System.in);
+        Integer input = scanner.nextInt();
+        if (input == 10) {
+            money10.add(input);
+            kartSum = input + kartSum;
+        } else if (input == 50) {
+            money50.add(input);
+            kartSum = input + kartSum;
+        } else if (input == 100) {
+            money100.add(input);
+            kartSum = input + kartSum;
+        } else if (input != 10 && input != 50 && input != 100) {
+            System.out.println("Банкомат не принимает такие купюры!");
         }
     }
+}
